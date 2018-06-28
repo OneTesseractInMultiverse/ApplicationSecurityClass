@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------------------------------
 def formatee_el_numero_de_cuenta(la_cuenta_cliente: str, los_dos_digitos):
     iniciales_del_pais = "CR"
-    return iniciales_del_pais + los_dos_digitos + la_cuenta_cliente
+    return "{}{}{}".format(iniciales_del_pais, los_dos_digitos, la_cuenta_cliente)
 
 # ---------------------------------------------------------------------------------------
 # FORMATEE EL NUMERO COMO TEXTO
@@ -35,7 +35,7 @@ def formatee_como_dos_digitos(el_numero_verificador: int):
     if tiene_un_solo_digito(el_numero_verificador):
         return formatee_el_numero_precedido_con_un_cero(el_numero_verificador)
     else:
-        formatee_el_numero_como_texto(el_numero_verificador)
+        return formatee_el_numero_como_texto(el_numero_verificador)
 
 
 # ---------------------------------------------------------------------------------------
@@ -93,6 +93,13 @@ def genere_el_numero_de_cuenta_iban(la_cuenta_cliente: str):
     return formatee_el_numero_de_cuenta(la_cuenta_cliente, los_digitos)
 
 
+# =======================================================================================
+
+el_resultado_esperado = "CR1010200009007408120"
+el_resultado_obtenido = genere_el_numero_de_cuenta_iban("10200009007408120")
+
+print("Resultado esperado: {}".format(el_resultado_esperado))
+print("Resultado obtenido: {}".format(el_resultado_obtenido))
 
 
 
